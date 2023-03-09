@@ -1,13 +1,4 @@
 const calculateExpense = () => {
-  // const income = Number(document.querySelector('#income').value);
-  // const income = Number(document.querySelector('#income').value);
-  // console.log(income);
-  // const food = document.querySelector('#food').value;
-  // console.log(food);
-  // const rent = document.querySelector('#rent').value;
-  // console.log(rent);
-  // const clothes = document.querySelectorAll('#clothes')[0].value;
-  // console.log(clothes);
   const income = Number(document.querySelector('#income').value);
   // console.log(income);
   const food = Number(document.querySelector('#food').value);
@@ -19,14 +10,6 @@ const calculateExpense = () => {
   // const num = Number('');
   // console.log('num :>> ', num);
   if (
-    // income === '' ||
-    // income < 0 ||
-    // food === '' ||
-    // food < 0 ||
-    // rent === '' ||
-    // rent < 0 ||
-    // clothes === '' ||
-    // clothes < 0
     income === 0 ||
     income < 0 ||
     isNaN(income) ||
@@ -55,6 +38,12 @@ const calculateExpense = () => {
     document.getElementById('total-expense').innerText = expense;
     document.getElementById('balance').innerText = balance;
   }
+  // console.log((getIncome = ''));
+  // getIncome = '';
+  document.querySelector('#income').value = '';
+  document.querySelector('#food').value = '';
+  document.querySelector('#rent').value = '';
+  document.querySelector('#clothes').value = '';
 };
 
 // calculate saving
@@ -74,13 +63,15 @@ const calculateSavings = () => {
   // calculate remaining balance
   // const balance = document.getElementById('balance').innerText;
   const remainingBalance = totalBalance - savingAmount;
-console.log('remainingBalance :>> ', remainingBalance);
+  console.log('remainingBalance :>> ', remainingBalance);
   //   validate saving amount
   if (savingAmount > totalBalance) {
     alert('SavingAmount is greater than balance');
   } else {
     // view saving amount and remaining balance
     document.getElementById('saving-amount').innerText = savingAmount;
-    document.getElementById('remaining-balance').innerText = remainingBalance.toFixed(2);
+    document.getElementById('remaining-balance').innerText =
+      remainingBalance.toFixed(2);
   }
+  document.getElementById('save').value = '';
 };
