@@ -50,28 +50,29 @@ const calculateExpense = () => {
 const calculateSavings = () => {
   // calculate saving amount
   const savePercentage = Number(document.getElementById('save').value);
-  console.log('savePercentage :>> ', savePercentage);
+  // console.log('savePercentage :>> ', savePercentage);
   //   Validate saving percentage value
   if (savePercentage < 0 || isNaN(savePercentage)) {
     alert('Provide positive saving value');
-  }
-  const totalBalance = Number(document.getElementById('balance').innerText);
-  console.log('totalBalance :>> ', totalBalance);
-  // calculate saving amount
-  const savingAmount = (totalBalance * savePercentage) / 100;
-  console.log('savingAmount :>> ', savingAmount);
-  // calculate remaining balance
-  // const balance = document.getElementById('balance').innerText;
-  const remainingBalance = totalBalance - savingAmount;
-  console.log('remainingBalance :>> ', remainingBalance);
-  //   validate saving amount
-  if (savingAmount > totalBalance) {
-    alert('SavingAmount is greater than balance');
   } else {
-    // view saving amount and remaining balance
-    document.getElementById('saving-amount').innerText = savingAmount;
-    document.getElementById('remaining-balance').innerText =
-      remainingBalance.toFixed(2);
+    const totalBalance = Number(document.getElementById('balance').innerText);
+    // console.log('totalBalance :>> ', totalBalance);
+    // calculate saving amount
+    const savingAmount = (totalBalance * savePercentage) / 100;
+    // console.log('savingAmount :>> ', savingAmount);
+    // calculate remaining balance
+    const remainingBalance = totalBalance - savingAmount;
+    // console.log('remainingBalance :>> ', remainingBalance);
+    //   validate saving amount
+    if (savingAmount === 0 || savingAmount > totalBalance) {
+      alert('SavingAmount is greater than balance');
+    } else {
+      // view saving amount and remaining balance
+      document.getElementById('saving-amount').innerText = savingAmount;
+      document.getElementById('remaining-balance').innerText =
+        remainingBalance.toFixed(2);
+    }
   }
+
   document.getElementById('save').value = '';
 };
